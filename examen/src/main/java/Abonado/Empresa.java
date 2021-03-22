@@ -21,6 +21,11 @@ public class Empresa extends Abonado{
         
     }
     
+    public Empresa(String nombre, String direccion, String cif){
+        super(nombre, direccion);
+        this.cif = cif;
+    }
+    
     public Empresa(String nombre, String direccion, Factura[] facturas, String cif){
         super(nombre, direccion, facturas);
         this.cif = cif;
@@ -37,7 +42,7 @@ public class Empresa extends Abonado{
     @Override
     public String toString(){
         return "Empresa{\n"
-                + "CIF: " + cif + "\n}";
+                + "CIF: " + cif + "\n" + super.toString() +"\n}";
     }
 
     public String getCif() {

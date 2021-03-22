@@ -41,7 +41,7 @@ public class FacAsociacion extends Factura{
 
     @Override
     public String toString(){
-        return "Factura Cliente{\nTarifa Cliente: " + tarifaAsoc + this + "\n}";
+        return "Factura Cliente{\nTarifa Cliente: " + tarifaAsoc + "\n" + super.toString() + "\n}";
     }
 
     public double getTarifaCliente() {

@@ -17,11 +17,6 @@ public class FacCliente extends Factura{
     //Atributos
     double tarifaCliente;
     
-    @Override
-    public double importeFactura(){
-        return consumo*tarifaCliente + tarifaBasura;
-    }
-    
     public FacCliente(){
         
     }
@@ -30,6 +25,13 @@ public class FacCliente extends Factura{
         super(fecha, consumo, tarifaBasura);
         this.tarifaCliente = tarifaCliente;
     }
+    
+    @Override
+    public double importeFactura(){
+        return consumo*tarifaCliente + tarifaBasura;
+    }
+    
+    
     
     public boolean equals(FacCliente other){
         if(fecha == other.getFecha() && consumo == other.getConsumo() && tarifaBasura == other.getTarifaBasura()&& tarifaCliente == other.getTarifaCliente()){
@@ -41,7 +43,7 @@ public class FacCliente extends Factura{
 
     @Override
     public String toString(){
-        return "Factura Cliente{\nTarifa Cliente: " + tarifaCliente + this + "\n}";
+        return "Factura Cliente{\nTarifa Cliente: " + tarifaCliente + "\n" + super.toString() + "\n}";
     }
 
     public double getTarifaCliente() {

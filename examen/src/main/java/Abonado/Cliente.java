@@ -21,6 +21,11 @@ public class Cliente extends Abonado{
         
     }
     
+    public Cliente(String nombre, String direccion, String dni){
+        super(nombre, direccion);
+        this.dni = dni;
+    }
+    
     public Cliente(String nombre, String direccion, Factura[] facturas, String dni){
         super(nombre, direccion, facturas);
         this.dni = dni;
@@ -37,7 +42,7 @@ public class Cliente extends Abonado{
     @Override
     public String toString(){
         return "Cliente{\n"
-                + "DNI: " + dni + "\n}";
+                + "DNI: " + dni + "\n" + super.toString() + "\n}";
     }
 
     public String getDni() {

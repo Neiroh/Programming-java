@@ -21,6 +21,11 @@ public class Asociacion extends Abonado{
         
     }
     
+    public Asociacion(String nombre, String direccion, String ca){
+        super(nombre, direccion);
+        this.ca = ca;
+    }
+    
     public Asociacion(String nombre, String direccion, Factura[] facturas, String ca){
         super(nombre, direccion, facturas);
         this.ca = ca;
@@ -37,7 +42,7 @@ public class Asociacion extends Abonado{
     @Override
     public String toString(){
         return "Asociacion{\n"
-                + "CA: " + ca + "\n}";
+                + "CA: " + ca + "\n" + super.toString() + "\n}";
     }
 
     public String getCa() {

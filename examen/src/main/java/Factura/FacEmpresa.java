@@ -40,7 +40,7 @@ public class FacEmpresa extends Factura{
 
     @Override
     public String toString(){
-        return "Factura Cliente{\nTarifa Empresa: " + tarifaEmpresa + this + "\n}";
+        return "Factura Cliente{\nTarifa Empresa: " + tarifaEmpresa + "\n" + super.toString() + "\n}";
     }
 
     public double getTarifaEmpresa() {

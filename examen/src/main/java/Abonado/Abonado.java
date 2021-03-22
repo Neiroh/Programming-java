@@ -29,6 +29,11 @@ public class Abonado {
         this.direccion = direccion;
         this.facturas = facturas;
     }
+
+    public Abonado(String nombre, String direccion) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+    }
     
     public boolean equals(Abonado other){
         if(nombre.equals(other.getNombre()) && direccion.equals(other.getDireccion()) && facturas.equals(other.getFacturas())){
