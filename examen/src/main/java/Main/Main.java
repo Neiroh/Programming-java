@@ -66,6 +66,8 @@ public class Main {
         Abonado e1 = new Empresa("José María Fernández López", "Calle Dolorosa nº8 4ºA", "12345678B");
         Abonado a1 = new Asociacion("Parque Nacional", "Calle Gran Vía s/n", "12345678C");
         
+        //@param mediaCliente
+        //@param fc es un array de tipo Factura y almacena el array sobre el que queremos hacer la media
         System.out.println(e1);
         System.out.println(a1);
         System.out.println(c1 + "\n\nMedia del año: " + mediaCliente(fc));
@@ -81,26 +83,4 @@ public class Main {
         
         return media /= f.length;
     }
-    
-//    public double mediaEmpresa(Factura[] fe){
-//        
-//        double media = 0;
-//        
-//        for(int i = 0; i < fe.length; i++){
-//            media += fe[i].importeFactura();
-//        }
-//        
-//        return media /= 2;
-//    }
-//    
-//    public double mediaAsociacion(Factura[] fa){
-//        
-//        double media = 0;
-//        
-//        for(int i = 0; i < fa.length; i++){
-//            media += fa[i].importeFactura();
-//        }
-//        
-//        return media /= 2;
-//    }
 }
