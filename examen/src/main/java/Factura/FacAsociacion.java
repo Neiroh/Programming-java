@@ -15,10 +15,11 @@ import java.util.Date;
 public class FacAsociacion extends Factura{
 
     double tarifaAsoc;
+    double descuentoAsoc = 20;
     
     @Override
     public double importeFactura(){
-        return consumo*tarifaAsoc + tarifaBasura;
+        return descuentoAsoc*(consumo*tarifaAsoc + tarifaBasura)/100;
     }
     
     public FacAsociacion(){
