@@ -1,5 +1,16 @@
 package Main;
 
+import Equipo.Equipo;
+import Evento.Evento;
+import Juego.Juego;
+import Mesa.Mesa;
+import Participante.Participante;
+import Participante.ParticipanteFamNum;
+import Participante.ParticipanteJoven;
+import Participante.ParticipanteMinusvalido;
+import Participante.ParticipanteVacio;
+import java.util.Date;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -67,6 +78,56 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Date actual = new Date();
+        
+        Date fechaWow = new Date(2021, 10, 13, 16, 15);
+        Date fechaSmash = new Date(2021, 10, 14, 16, 15);
+        Date fechaLol = new Date(2021, 10, 15, 16, 15);
+        Date fechaFifa = new Date(2021, 10, 16, 16, 15);
+        
+        Date fechaNacMenor = new Date(2004, 5, 7);
+        Date fechaNacMayor1 = new Date(2001, 7, 13);
+        Date fechaNacMayor2 = new Date(1995, 7, 20);
+        Date fechaNacMayor3 = new Date(2000, 3, 17);
+        Date fechaNacMayor4 = new Date(2001, 12, 20);
+        
+        Juego wow = new Juego("World of Warcraft", "MMORPG");
+        Juego lol = new Juego("League of Legends", "MOBA");
+        Juego smash = new Juego("Super Smash Bros Ultimate", "Fighting Game");
+        Juego fifa = new Juego("FIFA20", "Fútbol");
+        
+        Juego[] juegos1 = new Juego[2];
+        juegos1[0] = wow;
+        juegos1[1] = lol;
+        
+        Juego[] juegos2 = new Juego[1];
+        juegos1[0] = fifa;
+        
+        Juego[] juegos3 = new Juego[2];
+        juegos1[0] = wow;
+        juegos1[1] = smash;
+        
+        Mesa mesaMia = new Mesa(1, 20, 40, 35, "Rojo");
+        Mesa mesa1 = new Mesa(2, 20, 40, 35, "Azul");
+        Mesa mesa2 = new Mesa(3, 20, 40, 35, "Verde");
+        Mesa mesa3 = new Mesa(4, 20, 40, 35, "Rosa");
+        Mesa mesa4 = new Mesa(5, 20, 40, 35, "Negro");
+        
+        ParticipanteJoven raul = new ParticipanteJoven(123, "123456789A", "Raúl", "Fernández", "Arce", fechaNacMayor1, "Calle agonía", juegos3, mesaMia);
+        ParticipanteVacio alvaro = new ParticipanteVacio("122345678B", "Álvaro", "Bautista", "Arce", fechaNacMayor2, "Calle Agonía", juegos3, mesa1);
+        ParticipanteFamNum antonio = new ParticipanteFamNum(321, "123345678C", "Antonio", "Cambelo", "González", fechaNacMayor4, "Calle Desesperación", juegos2, mesa3);
+        ParticipanteMinusvalido jose = new ParticipanteMinusvalido(111, "123445678D", "José Luis", "Fernández", "Gutiérrez", fechaNacMayor3, "Calle Aburrimiento", juegos1, mesa4);
+        ParticipanteVacio menor = new ParticipanteVacio("123455678E", "Joselito", "De la Rosa", "Jiménez", fechaNacMenor, "Calle Sin Derechos", juegos1, mesa2, false);
+        
+        Participante[] unnamed = new Participante[5];
+        unnamed[0] = raul;
+        unnamed[1] = alvaro;
+        unnamed[2] = antonio;
+        unnamed[3] = jose;
+        unnamed[4] = menor;
+        
+        Equipo unnamed = new Equipo(1, "Unnamed Ceuta", "Rojo", juegos3, unnamed, raul);
     }
     
 }
