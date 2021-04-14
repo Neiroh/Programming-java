@@ -44,4 +44,38 @@ public class Evento {
                 + "Equipos: " + equipos + "\n"
                 + "Ganador: " + ganador;
     }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public Juego getJuego() {
+        return juego;
+    }
+
+    public void setJuego(Juego juego) {
+        this.juego = juego;
+    }
+
+    public Equipo[] getEquipos() {
+        return equipos;
+    }
+
+    public void setEquipos(Equipo[] equipos) {
+        this.equipos = equipos;
+    }
+
+    public Equipo getGanador() {
+        return ganador;
+    }
+
+    public void setGanador(Equipo ganador) {
+        this.ganador = ganador;
+    }
+    
+    
 }
