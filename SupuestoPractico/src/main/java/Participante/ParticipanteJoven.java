@@ -8,7 +8,6 @@ package Participante;
 
 import Juego.Juego;
 import Mesa.Mesa;
-import java.util.Date;
 
 /**
  *
@@ -23,13 +22,13 @@ public class ParticipanteJoven extends Participante{
         
     }
     
-    public ParticipanteJoven(int numCarnet, String dni, String nombre, String ap1, String ap2, Date fechaNac, String direccion,
+    public ParticipanteJoven(int numCarnet, String dni, String nombre, String ap1, String ap2, String fechaNac, String direccion,
             Juego[] juegos, Mesa mesa){
         super(dni, nombre, ap1, ap2, fechaNac, direccion, juegos, mesa);
         this.numCarnet = numCarnet;
     }
     
-    public ParticipanteJoven(int numCarnet, String dni, String nombre, String ap1, String ap2, Date fechaNac, String direccion,
+    public ParticipanteJoven(int numCarnet, String dni, String nombre, String ap1, String ap2, String fechaNac, String direccion,
             Juego[] juegos, Mesa mesa, boolean justificantePadre){
         super(dni, nombre, ap1, ap2, fechaNac, direccion, juegos, mesa, justificantePadre);
         this.numCarnet = numCarnet;

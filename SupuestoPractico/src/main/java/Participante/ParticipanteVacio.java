@@ -9,7 +9,6 @@ package Participante;
 import java.util.Arrays;
 import Juego.Juego;
 import Mesa.Mesa;
-import java.util.Date;
 
 /**
  *
@@ -23,12 +22,12 @@ public class ParticipanteVacio extends Participante{
         
     }
     
-    public ParticipanteVacio(String dni, String nombre, String ap1, String ap2, Date fechaNac, String direccion,
+    public ParticipanteVacio(String dni, String nombre, String ap1, String ap2, String fechaNac, String direccion,
             Juego[] juegos, Mesa mesa){
         super(dni, nombre, ap1, ap2, fechaNac, direccion, juegos, mesa);
     }
     
-    public ParticipanteVacio(String dni, String nombre, String ap1, String ap2, Date fechaNac, String direccion,
+    public ParticipanteVacio(String dni, String nombre, String ap1, String ap2, String fechaNac, String direccion,
             Juego[] juegos, Mesa mesa, boolean justificantePadre){
         super(dni, nombre, ap1, ap2, fechaNac, direccion, juegos, mesa, justificantePadre);
     }

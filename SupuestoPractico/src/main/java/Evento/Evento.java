@@ -8,7 +8,6 @@ package Evento;
 
 import Equipo.Equipo;
 import Juego.Juego;
-import java.util.Date;
 
 /**
  *
@@ -16,7 +15,7 @@ import java.util.Date;
  */
 public class Evento {
 
-    protected Date fecha;
+    protected String fecha;
     protected Juego juego;
     protected Equipo[] equipos;
     protected Equipo ganador;
@@ -25,7 +24,7 @@ public class Evento {
         
     }
     
-    public Evento(Date fecha, Juego juego, Equipo[] equipos, Equipo ganador){
+    public Evento(String fecha, Juego juego, Equipo[] equipos, Equipo ganador){
         this.fecha = fecha;
         this.juego = juego;
         this.equipos = equipos;
@@ -45,11 +44,11 @@ public class Evento {
                 + "Ganador: " + ganador;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

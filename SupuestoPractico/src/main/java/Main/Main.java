@@ -13,9 +13,15 @@ import Participante.ParticipanteFamNum;
 import Participante.ParticipanteJoven;
 import Participante.ParticipanteMinusvalido;
 import Participante.ParticipanteVacio;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.Set;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -82,8 +88,9 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         // TODO code application logic here
         
 //        Date actual = new Date();
@@ -147,16 +154,20 @@ public class Main {
 //        System.out.println(alvaro);
 //        System.out.println("");
 //        System.out.println(antonio);
-
-        String rolWow;
-        String rolLol;
-        int numJuegos;
-        int idMesa = 1;
-        boolean justificante = false;
+        
+        //Atributos
+        String rolWow; //Lo usamos para tener inicializada la variable y poder usarla fuera del bucle
+        String rolLol; //Lo usamos para tener inicializada la variable y poder usarla fuera del bucle
+        int numJuegos; //Lo usamos para tener inicializada la variable y poder usarla fuera del bucle
+        int idMesa = 1; //Como hay máximo de cupos, inicializamos el id de la primera mesa para ir contabilizando
+        boolean justificante = false; 
 
         System.out.println("Ingresa tu DNI...");
         String dni = sc.next();
         
+        //@method validaDni sirve para comprobar que el DNI está bien compuesto
+        //@param dni es un String, para que el método valide el dni debe contener 8 números y una letra
+        //Aquí comprobamos que no se inserte de forma incorrecta
         while(validaDni(dni)){
             System.out.println("DNI incorrecto...");
             dni = sc.next();
@@ -175,39 +186,64 @@ public class Main {
         System.out.println("Día...");
         int dia = sc.nextInt();
         
+        //Restamos uno porque la fecha se cuenta desde 0(enero) hasta 11(diciembre)
         System.out.println("Mes...");
         int mes = sc.nextInt();
-        mes =- 1;
+        mes -= 1;
         
         System.out.println("Año...");
         int año = sc.nextInt();
         
-        Date fechaNac = new Date(año, mes, dia);
-        Date act = new Date();
+        //@param fechaNac es una fecha que vamos a cambiar
+        //@param actual es la fecha del sistema en este momento
+        Calendar fechaNac = Calendar.getInstance();
+        Calendar actual = Calendar.getInstance();
         
-        if(fechaNac.compareTo(act) < 18){
+        //@method set sirve para establecer un cambio en una fecha
+        //@param year es un int que marca el año
+        //@param month es un int que marca el mes
+        //@param day es un int que marca el día
+        fechaNac.set(año, mes, dia);
+        
+        //Aquí hacemos los cálculos para comprobar que el usuario registrario sea mayor o menor de edad
+        int diffAño = actual.get(Calendar.YEAR) - fechaNac.get(Calendar.YEAR);
+        int diffMes = actual.get(Calendar.MONTH) - fechaNac.get(Calendar.MONTH);
+        int diffDia = actual.get(Calendar.DAY_OF_MONTH) - fechaNac.get(Calendar.DAY_OF_MONTH);
+        
+        if(diffMes < 0 || (diffMes == 0 && diffDia < 0)){
+            diffAño -= 1;
+        }
+             
+        //Aquí la condición donde se comprueba, ya que si es menor necesitaremos el cerificado de sus padres
+        if(diffAño < 18){
             System.out.println("Ingresa la ruta donde se encuentra una imagen del permiso paterno...");
-            String ruta = sc.next();
+            String ruta = bf.readLine();
             
             for(int i = 0; i < 3; i++){
-                if(ruta == null){
+                if(ruta.equals("") || ruta.equals(" ")){
                     System.out.println("NECESITA UN PERMISO");
                     System.out.println("LE QUEDAN " + (3-i) + " INTENTOS");
+                    ruta = bf.readLine();
                 }
             }
-            if(ruta == null){
+            if(ruta.equals("") || ruta.equals(" ")){
                 System.exit(0);
             }else{
                 justificante = true;
             }
         }
+                
+        //@class SimpleDateFormat sirve para cambiar el sistema de fecha, ya que en calendar no es legible
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MMMMM/yyyy");
+        String fechaNacF = sdf.format(fechaNac.getTime());
         
         System.out.println("Ingresa tu Dirección...");
-        String direccion = sc.next();
+        String direccion = bf.readLine();
            
         System.out.println("Inserta el número de juegos en los que va a participar...");
         numJuegos = sc.nextInt();
 
+        //Comprobamos que no se inserten números negativos ni más de 4 juegos, ya que solo hay 4
         if(numJuegos < 0 || numJuegos > 4){
             while(numJuegos < 0 || numJuegos > 4){
                 System.out.println("NÚMERO INCORRECTO");
@@ -264,7 +300,8 @@ public class Main {
             }
         }
         
-        if(idMesa == 201){
+        //Comprobamos que no sobrepasemos el número de plazas
+        if(idMesa > 200){
             System.out.println("Lamentamos informarle de que no quedan plazas. Muchas Gracias");
         }
         //Sé que esto debería estar en un while que cubriera todo el main, ya que las plazas giran en torno a esto
@@ -276,16 +313,18 @@ public class Main {
         Mesa mesa = new Mesa(idMesa);
         
         System.out.println("Inserta qué tipo de usuario eres...");
-        System.out.println("Carnet Joven | Minusválido | Familia Numerosa | Normal");
-        String tipoUsuario = sc.next();
+        System.out.print("Carnet Joven | Minusválido | Familia Numerosa | Normal");
+        System.out.println("");
+        String tipoUsuario = bf.readLine();
         
+        //Aquí comprobamos el tipo de ususario que se va a registrar
         if(tipoUsuario.equalsIgnoreCase("carnet joven")){
             
             System.out.println("Inserta el número de Carnet Joven...");
             int numCarnet = sc.nextInt();
             
-            ParticipanteJoven pJ = new ParticipanteJoven(numCarnet, dni, nombre, ap1, ap2, fechaNac, direccion, juegos, mesa, justificante);
-            pJ.toString();
+            ParticipanteJoven pJ = new ParticipanteJoven(numCarnet, dni, nombre, ap1, ap2, fechaNacF, direccion, juegos, mesa, justificante);
+            System.out.println(pJ);
             
             System.out.println("A pagar " + pJ.pago());
             
@@ -294,8 +333,8 @@ public class Main {
             System.out.println("Inserta el número de minusvalía...");
             int numMinus = sc.nextInt();
             
-            ParticipanteMinusvalido pM = new ParticipanteMinusvalido(numMinus, dni, nombre, ap1, ap2, fechaNac, direccion, juegos, mesa, justificante);
-            pM.toString();
+            ParticipanteMinusvalido pM = new ParticipanteMinusvalido(numMinus, dni, nombre, ap1, ap2, fechaNacF, direccion, juegos, mesa, justificante);
+            System.out.println(pM);
             
             System.out.println("A pagar " + pM.pago());
             
@@ -304,15 +343,15 @@ public class Main {
             System.out.println("Inserta el número de libro de Familia Numerosa");
             int numLibro = sc.nextInt();
             
-            ParticipanteFamNum pF = new ParticipanteFamNum(numLibro, dni, nombre, ap1, ap2, fechaNac, direccion, juegos, mesa, justificante);
-            pF.toString();
+            ParticipanteFamNum pF = new ParticipanteFamNum(numLibro, dni, nombre, ap1, ap2, fechaNacF, direccion, juegos, mesa, justificante);
+            System.out.println(pF);
             
             System.out.println("A pagar " + pF.pago());
             
         }else{
             
-            ParticipanteVacio pV = new ParticipanteVacio(dni, nombre, ap1, ap2, fechaNac, direccion, juegos, mesa, justificante);
-            pV.toString();
+            ParticipanteVacio pV = new ParticipanteVacio(dni, nombre, ap1, ap2, fechaNacF, direccion, juegos, mesa, justificante);
+            System.out.println(pV);
             
             System.out.println("A pagar " + pV.pago());
             
@@ -329,4 +368,5 @@ public class Main {
     
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_RESET = "\u001B[0m";
+    
 }

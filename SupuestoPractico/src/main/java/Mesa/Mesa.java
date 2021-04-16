@@ -13,9 +13,9 @@ package Mesa;
 public class Mesa {
 
     protected int id;
-    protected double ancho;
-    protected double alto;
-    protected double largo;
+    protected double ancho = 200;
+    protected double alto = 100;
+    protected double largo = 300;
     protected String color;
     
     public Mesa(){

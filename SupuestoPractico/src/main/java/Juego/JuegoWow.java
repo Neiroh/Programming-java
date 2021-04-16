@@ -31,7 +31,7 @@ public class JuegoWow extends Juego{
     
     @Override
     public String toString(){
-        return "FIFA{\n"
+        return "WOW{\n"
                 + super.toString() + "\n"
                 + "Rol: " + rol + "\n"
                 + "Clase: " + clase;

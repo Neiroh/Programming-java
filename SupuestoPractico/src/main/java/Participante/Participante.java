@@ -9,7 +9,6 @@ package Participante;
 import Juego.Juego;
 import Mesa.Mesa;
 import java.util.Arrays;
-import java.util.Date;
 
 /**
  *
@@ -21,7 +20,7 @@ public abstract class Participante {
     protected String nombre;
     protected String ap1;
     protected String ap2;
-    protected Date fechaNac;
+    protected String fechaNac;
     protected String direccion;
     protected Juego[] juegos;
     protected Mesa mesa;
@@ -31,7 +30,7 @@ public abstract class Participante {
         
     }
     
-    public Participante(String dni, String nombre, String ap1, String ap2, Date fechaNac, String direccion,
+    public Participante(String dni, String nombre, String ap1, String ap2, String fechaNac, String direccion,
             Juego[] juegos, Mesa mesa){
         this.dni = dni;
         this.nombre = nombre;
@@ -43,7 +42,7 @@ public abstract class Participante {
         this.mesa = mesa;
     }
     
-    public Participante(String dni, String nombre, String ap1, String ap2, Date fechaNac, String direccion,
+    public Participante(String dni, String nombre, String ap1, String ap2, String fechaNac, String direccion,
             Juego[] juegos, Mesa mesa, boolean justificantePadre){
         this.dni = dni;
         this.nombre = nombre;
@@ -106,11 +105,11 @@ public abstract class Participante {
         this.ap2 = ap2;
     }
 
-    public Date getFechaNac() {
+    public String getFechaNac() {
         return fechaNac;
     }
 
-    public void setFechaNac(Date fechaNac) {
+    public void setFechaNac(String fechaNac) {
         this.fechaNac = fechaNac;
     }
 

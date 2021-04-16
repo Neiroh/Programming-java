@@ -29,7 +29,7 @@ public class JuegoSmash extends Juego{
     
     @Override
     public String toString(){
-        return "FIFA{\n"
+        return "Smash\n"
                 + super.toString() + "\n"
                 + "Personaje: " + personaje;
     }

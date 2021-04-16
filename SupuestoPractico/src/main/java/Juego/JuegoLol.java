@@ -29,7 +29,7 @@ public class JuegoLol extends Juego{
     
     @Override
     public String toString(){
-        return "FIFA{\n"
+        return "LOL{\n"
                 + super.toString() + "\n"
                 + "Rol: " + rol;
     }
