@@ -75,7 +75,5 @@ public class Evento {
 
     public void setGanador(Equipo ganador) {
         this.ganador = ganador;
-    }
-    
-    
+    }   
 }

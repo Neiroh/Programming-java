@@ -6,7 +6,6 @@
 
 package Participante;
 
-import Equipo.Equipo;
 import Juego.Juego;
 import Mesa.Mesa;
 import java.util.Arrays;
@@ -25,7 +24,6 @@ public abstract class Participante {
     protected Date fechaNac;
     protected String direccion;
     protected Juego[] juegos;
-    protected Equipo equipo;
     protected Mesa mesa;
     protected boolean justificantePadre;
     
@@ -34,7 +32,7 @@ public abstract class Participante {
     }
     
     public Participante(String dni, String nombre, String ap1, String ap2, Date fechaNac, String direccion,
-            Juego[] juegos, Equipo equipo, Mesa mesa){
+            Juego[] juegos, Mesa mesa){
         this.dni = dni;
         this.nombre = nombre;
         this.ap1 = ap1;
@@ -42,12 +40,11 @@ public abstract class Participante {
         this.fechaNac = fechaNac;
         this.direccion = direccion;
         this.juegos = juegos;
-        this.equipo = equipo;
         this.mesa = mesa;
     }
     
     public Participante(String dni, String nombre, String ap1, String ap2, Date fechaNac, String direccion,
-            Juego[] juegos, Equipo equipo, Mesa mesa, boolean justificantePadre){
+            Juego[] juegos, Mesa mesa, boolean justificantePadre){
         this.dni = dni;
         this.nombre = nombre;
         this.ap1 = ap1;
@@ -55,7 +52,6 @@ public abstract class Participante {
         this.fechaNac = fechaNac;
         this.direccion = direccion;
         this.juegos = juegos;
-        this.equipo = equipo;
         this.mesa = mesa;
         this.justificantePadre = justificantePadre;
     }
@@ -74,7 +70,6 @@ public abstract class Participante {
                 + "Fecha de Nacimiento: " + fechaNac + "\n"
                 + "Dirección: " + direccion + "\n"
                 + "Juegos: " + Arrays.toString(juegos) + "\n"
-                + "Equipo: " + equipo + "\n"
                 + "Mesa: " + mesa + "\n"
                 + "Justificante: " +justificantePadre;
     }
@@ -133,14 +128,6 @@ public abstract class Participante {
 
     public void setJuegos(Juego[] juegos) {
         this.juegos = juegos;
-    }
-
-    public Equipo getEquipo() {
-        return equipo;
-    }
-
-    public void setEquipo(Equipo equipo) {
-        this.equipo = equipo;
     }
 
     public Mesa getMesa() {

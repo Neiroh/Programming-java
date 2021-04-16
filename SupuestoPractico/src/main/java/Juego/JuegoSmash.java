@@ -10,6 +10,35 @@ package Juego;
  *
  * @author Neiroh
  */
-public class JuegoSmash {
+public class JuegoSmash extends Juego{
 
+    protected String personaje;
+    
+    public JuegoSmash(){
+        
+    }
+    
+    public JuegoSmash(String nombre, String genero, String personaje){
+        super(nombre, genero);
+        this.personaje = personaje;
+    }
+    
+    public boolean equals(JuegoSmash other){
+        return super.equals(other) && personaje.equals(other.personaje);
+    }
+    
+    @Override
+    public String toString(){
+        return "FIFA{\n"
+                + super.toString() + "\n"
+                + "Personaje: " + personaje;
+    }
+
+    public String getPersonaje() {
+        return personaje;
+    }
+
+    public void setPersonaje(String personaje) {
+        this.personaje = personaje;
+    }
 }

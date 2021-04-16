@@ -12,4 +12,44 @@ package Juego;
  */
 public class Juego {
 
+    protected String nombre;
+    protected String genero;
+    
+    public Juego(){
+        
+    }
+    
+    public Juego(String nombre, String genero){
+        this.nombre = nombre;
+        this.genero = genero;
+    }
+    
+    public boolean equals(Juego other){
+        return genero.equals(other.genero) && nombre.equals(other.genero);
+    }
+    
+    @Override
+    public String toString(){
+        return "Juego{\n"
+                + "Nombre: " + nombre + "\n"
+                + "Género: " + genero + "\n";
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+    
+    
 }

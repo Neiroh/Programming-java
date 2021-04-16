@@ -9,6 +9,7 @@ import Participante.ParticipanteFamNum;
 import Participante.ParticipanteJoven;
 import Participante.ParticipanteMinusvalido;
 import Participante.ParticipanteVacio;
+import java.util.Arrays;
 import java.util.Date;
 
 /*
@@ -127,7 +128,21 @@ public class Main {
         unnamed[3] = jose;
         unnamed[4] = menor;
         
-        Equipo unnamed = new Equipo(1, "Unnamed Ceuta", "Rojo", juegos3, unnamed, raul);
+        Equipo unnamedE = new Equipo(1, "Unnamed Ceuta", "Rojo", juegos3, unnamed, raul);
+        
+        System.out.println(mesaMia);
+        System.out.println("");
+        System.out.println(Arrays.toString(juegos3));
+        System.out.println("");
+        System.out.println(unnamedE);
+        System.out.println("");
+        System.out.println(raul);
+        System.out.println("");
+        System.out.println(alvaro);
+        System.out.println("");
+        System.out.println(antonio);
     }
+    
+    
     
 }

@@ -8,6 +8,10 @@ package Equipo;
 
 import Juego.Juego;
 import Participante.Participante;
+import Participante.ParticipanteFamNum;
+import Participante.ParticipanteJoven;
+import Participante.ParticipanteMinusvalido;
+import Participante.ParticipanteVacio;
 import java.util.Arrays;
 
 /**
@@ -27,13 +31,44 @@ public class Equipo {
         
     }
     
-    public Equipo(int id, String nombre, String color, Juego[] juegos, Participante[] participantes, Participante capitan){
+    public Equipo(int id, String nombre, String color, Juego[] juegos, Participante[] participantes, ParticipanteJoven capitan){
         this.id = id;
         this.nombre = nombre;
         this.color = color;
         this.juegos = juegos;
         this.participantes = participantes;
         this.capitan = capitan;
+    }
+    
+    public Equipo(int id, String nombre, String color, Juego[] juegos, Participante[] participantes, ParticipanteFamNum capitan){
+        this.id = id;
+        this.nombre = nombre;
+        this.color = color;
+        this.juegos = juegos;
+        this.participantes = participantes;
+        this.capitan = capitan;
+    }
+    
+    public Equipo(int id, String nombre, String color, Juego[] juegos, Participante[] participantes, ParticipanteMinusvalido capitan){
+        this.id = id;
+        this.nombre = nombre;
+        this.color = color;
+        this.juegos = juegos;
+        this.participantes = participantes;
+        this.capitan = capitan;
+    }
+    
+    public Equipo(int id, String nombre, String color, Juego[] juegos, Participante[] participantes, ParticipanteVacio capitan){
+        this.id = id;
+        this.nombre = nombre;
+        this.color = color;
+        this.juegos = juegos;
+        this.participantes = participantes;
+        this.capitan = capitan;
+    }
+
+    public Equipo(int i, String unnamed_Ceuta, String rojo, Juego[] juegos3, Equipo unnamed, ParticipanteJoven raul) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public boolean equals(Equipo other){
