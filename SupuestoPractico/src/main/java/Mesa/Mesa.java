@@ -30,6 +30,10 @@ public class Mesa {
         this.color = color;
     }
     
+    public Mesa(int id){
+        this.id = id;
+    }
+    
     public boolean equals(Mesa other){
         return id == other.id;
     }
