@@ -296,6 +296,7 @@ public class Main {
             }else{
                 
                 System.out.println("JUEGO INCORRECTO");
+                i--;
                 
             }
         }
@@ -312,50 +313,78 @@ public class Main {
         
         Mesa mesa = new Mesa(idMesa);
         
-        System.out.println("Inserta qué tipo de usuario eres...");
-        System.out.print("Carnet Joven | Minusválido | Familia Numerosa | Normal");
-        System.out.println("");
-        String tipoUsuario = bf.readLine();
+        
+        
+        System.out.println("Inserta el nombre del equipo en el que participas...");
+        String nomEq = bf.readLine();
+        
+        System.out.println("Inserta el color...");
+        String colorEq = bf.readLine();
+        
+        System.out.println("Inserta el nombre del capitan");
+        String capi = bf.readLine();
+        
+        //@class Equipo
+        //@param id es un tipo entero y es el identificador del equipo
+        //@param nombre es un String que almacena el nombre del equipo
+        //@param color es un String que almacena el color del equipo
+        //@param juegos es un Array de tipo Juego que almacena los juegos en los que va a participar el equipo
+        //@param capitan es un String o un Participante que almacena el capitan del equipo
+        Equipo equipo = new Equipo(1, nomEq, colorEq, juegos, capi);
         
         //Aquí comprobamos el tipo de ususario que se va a registrar
-        if(tipoUsuario.equalsIgnoreCase("carnet joven")){
+        for(int i = 0; i < 1; i++){
             
-            System.out.println("Inserta el número de Carnet Joven...");
-            int numCarnet = sc.nextInt();
+            System.out.println("Inserta qué tipo de usuario eres...");
+            System.out.print("Carnet Joven | Minusválido | Familia Numerosa | Normal");
+            System.out.println("");
+            String tipoUsuario = bf.readLine();
             
-            ParticipanteJoven pJ = new ParticipanteJoven(numCarnet, dni, nombre, ap1, ap2, fechaNacF, direccion, juegos, mesa, justificante);
-            System.out.println(pJ);
-            
-            System.out.println("A pagar " + pJ.pago());
-            
-        }else if(tipoUsuario.equalsIgnoreCase("minusvalido") || tipoUsuario.equalsIgnoreCase("minusválido")){
-            
-            System.out.println("Inserta el número de minusvalía...");
-            int numMinus = sc.nextInt();
-            
-            ParticipanteMinusvalido pM = new ParticipanteMinusvalido(numMinus, dni, nombre, ap1, ap2, fechaNacF, direccion, juegos, mesa, justificante);
-            System.out.println(pM);
-            
-            System.out.println("A pagar " + pM.pago());
-            
-        }else if(tipoUsuario.equalsIgnoreCase("familia numerosa")){
-            
-            System.out.println("Inserta el número de libro de Familia Numerosa");
-            int numLibro = sc.nextInt();
-            
-            ParticipanteFamNum pF = new ParticipanteFamNum(numLibro, dni, nombre, ap1, ap2, fechaNacF, direccion, juegos, mesa, justificante);
-            System.out.println(pF);
-            
-            System.out.println("A pagar " + pF.pago());
-            
-        }else{
-            
-            ParticipanteVacio pV = new ParticipanteVacio(dni, nombre, ap1, ap2, fechaNacF, direccion, juegos, mesa, justificante);
-            System.out.println(pV);
-            
-            System.out.println("A pagar " + pV.pago());
-            
+            if (tipoUsuario.equalsIgnoreCase("carnet joven")) {
+
+                System.out.println("Inserta el número de Carnet Joven...");
+                int numCarnet = sc.nextInt();
+
+                ParticipanteJoven pJ = new ParticipanteJoven(numCarnet, dni, nombre, ap1, ap2, fechaNacF, direccion, juegos, mesa, justificante, equipo);
+                System.out.println(pJ);
+
+                System.out.println("A pagar " + pJ.pago());
+
+            } else if (tipoUsuario.equalsIgnoreCase("minusvalido") || tipoUsuario.equalsIgnoreCase("minusválido")) {
+
+                System.out.println("Inserta el número de minusvalía...");
+                int numMinus = sc.nextInt();
+
+                ParticipanteMinusvalido pM = new ParticipanteMinusvalido(numMinus, dni, nombre, ap1, ap2, fechaNacF, direccion, juegos, mesa, justificante, equipo);
+                System.out.println(pM);
+
+                System.out.println("A pagar " + pM.pago());
+
+            } else if (tipoUsuario.equalsIgnoreCase("familia numerosa")) {
+
+                System.out.println("Inserta el número de libro de Familia Numerosa");
+                int numLibro = sc.nextInt();
+
+                ParticipanteFamNum pF = new ParticipanteFamNum(numLibro, dni, nombre, ap1, ap2, fechaNacF, direccion, juegos, mesa, justificante, equipo);
+                System.out.println(pF);
+
+                System.out.println("A pagar " + pF.pago());
+
+            } else if (tipoUsuario.equalsIgnoreCase("normal")) {
+
+                ParticipanteVacio pV = new ParticipanteVacio(dni, nombre, ap1, ap2, fechaNacF, direccion, juegos, mesa, justificante, equipo);
+                System.out.println(pV);
+
+                System.out.println("A pagar " + pV.pago());
+
+            }else{
+                
+                System.out.println("TIPO INCORRECTO");
+                i--;
+                
+            }
         }
+        
     }
     
     public static boolean validaDni(String dni){
