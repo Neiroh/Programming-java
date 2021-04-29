@@ -10,7 +10,7 @@ package Posicion;
  *
  * @author Neiroh
  */
-public class Vanguardia extends Personaje implements Movimiento.Ataque, Movimiento.Orden{
+public class Vanguardia extends Personaje{
 
     int daño;
     
@@ -21,17 +21,7 @@ public class Vanguardia extends Personaje implements Movimiento.Ataque, Movimien
     public Vanguardia(String nombre, int casillas, int daño){
         super(nombre, casillas);
         this.daño = daño;
-    }
-    
-    @Override
-    public void atacar(){
-        System.out.println("Realiza un ataque");
-    }
-    
-    @Override
-    public void ordenar(){
-        System.out.println("Da una orden");
-    }
+    }  
 
     public int getDaño() {
         return daño;

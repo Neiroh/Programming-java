@@ -10,7 +10,7 @@ package Posicion;
  *
  * @author Neiroh
  */
-public class Comandancia extends Personaje implements Movimiento.Orden{
+public class Comandancia extends Personaje{
 
     String orden;
     
@@ -21,11 +21,6 @@ public class Comandancia extends Personaje implements Movimiento.Orden{
     public Comandancia(String nombre, int casillas, String orden){
         super(nombre, casillas);
         this.orden = orden;
-    }
-    
-    @Override
-    public void ordenar(){
-        System.out.println("Da una orden");
     }
 
     public String getOrden() {

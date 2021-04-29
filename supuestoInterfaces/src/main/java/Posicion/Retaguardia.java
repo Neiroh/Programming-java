@@ -10,7 +10,7 @@ package Posicion;
  *
  * @author Neiroh
  */
-public class Retaguardia extends Personaje implements Movimiento.Defensa{
+public class Retaguardia extends Personaje{
 
     int defensa;
     
@@ -21,11 +21,6 @@ public class Retaguardia extends Personaje implements Movimiento.Defensa{
     public Retaguardia(String nombre, int casillas, int defensa){
         super(nombre, casillas);
         this.defensa = defensa;
-    }
-    
-    @Override
-    public void defender(){
-        System.out.println("Se defiende");
     }
     
     public boolean equals(Retaguardia other){
