@@ -27,7 +27,29 @@ public class Main {
         Personaje ret1 = new Retaguardia();
         Personaje com1 = new Comandancia();
         
+        Personaje[] pjs = new Personaje[3];
+        pjs[0] = van1;
+        pjs[1] = ret1;
+        pjs[2] = com1;
         
+        for (int i = 0; i < pjs.length; i++) {
+            
+             if(pjs[i] instanceof Comandancia){
+                 
+                 pjs[i].ordenar();
+                 
+             }else if(pjs[i] instanceof Retaguardia){
+                 
+                 pjs[i].defender();
+                 
+             }else if(pjs[i] instanceof Vanguardia){
+                 
+                 pjs[i].ordenar();
+                 pjs[i].atacar();
+                 
+             }
+            
+        }
         
     }
     
