@@ -24,7 +24,7 @@ public class OrdenaVolumen {
         for(int i = 0; i < objetos.length; i++){
             for(int j = 0; j < objetos.length; j++){
                 if(objetos[j].CalculaVolumen() > objetos[j+1].CalculaVolumen() && (j+1) <= objetos.length){
-                    array[i] = objetos[i];
+                    array[i] = objetos[j];
                 } 
             }
         }
