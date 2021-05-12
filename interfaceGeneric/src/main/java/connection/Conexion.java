@@ -23,8 +23,8 @@ public class Conexion {
         String url = "jdbc:mysql://localhost:3306/Empresa?user=" + usuario
                 + "&password=" + password;
         try {
-            //con = DriverManager.getConnection(url);
-            con = DriverManager.getConnection(url, "root", "I8e3s2p0c3#");
+            con = DriverManager.getConnection(url);
+            //con = DriverManager.getConnection(url, "root", "Daw.2021");
             if (con != null) {
                 System.out.println("Conectado");
             }
