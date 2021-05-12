@@ -18,7 +18,7 @@ public class Conexion {
     public static Connection conectar() {
         Connection con = null;
 
-        String password = "I8e3s2p0c3#";
+        String password = "Daw.2021";
         String usuario = "root";
         String url = "jdbc:mysql://localhost:3306/Empresa?user=" + usuario
                 + "&password=" + password;
