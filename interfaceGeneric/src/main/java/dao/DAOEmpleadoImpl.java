@@ -27,7 +27,7 @@ public class DAOEmpleadoImpl implements DAOEmpleado{
         Statement stm = null;
         Connection con = null;
 
-        String sql = "INSERT INTO Empleado values (NULL,'" + empleado.getNombre()+ "','" + empleado.getApellidos()+ "','" + empleado.getDni()+ "')";
+        String sql = "INSERT INTO empleado values (NULL,'" + empleado.getNombre()+ "','" + empleado.getApellidos()+ "','" + empleado.getDni()+ "')";
 
         try {
             con = Conexion.conectar();
@@ -49,7 +49,7 @@ public class DAOEmpleadoImpl implements DAOEmpleado{
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM Empleado ORDER BY ID";
+        String sql = "SELECT * FROM empleado ORDER BY id";
 
         List<Empleado> listaEmpleado = new ArrayList<Empleado>();
 
@@ -83,7 +83,7 @@ public class DAOEmpleadoImpl implements DAOEmpleado{
 
         boolean actualizar = false;
 
-        String sql = "UPDATE Empleado SET nombre='" + empleado.getNombre() + "', apellidos='" + empleado.getApellidos()+ "', dni='" + empleado.getDni()+ "'" + " WHERE ID=" + empleado.getId();
+        String sql = "UPDATE empleado SET nombre='" + empleado.getNombre() + "', apellidos='" + empleado.getApellidos()+ "', dni='" + empleado.getDni()+ "'" + " WHERE ID=" + empleado.getId();
         try {
             connect = Conexion.conectar();
             stm = connect.createStatement();
@@ -103,7 +103,7 @@ public class DAOEmpleadoImpl implements DAOEmpleado{
 
         boolean eliminar = false;
 
-        String sql = "DELETE FROM Empleado WHERE ID=" + empleado.getId();
+        String sql = "DELETE FROM empleado WHERE ID=" + empleado.getId();
         try {
             connect = Conexion.conectar();
             stm = connect.createStatement();

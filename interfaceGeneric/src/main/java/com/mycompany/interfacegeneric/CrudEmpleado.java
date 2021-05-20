@@ -19,7 +19,7 @@ public class CrudEmpleado {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Empleado empleado = new Empleado("JOSÉ", "GONZÁLEZ GUTIÉRREZ", "00000000A");
+        /*Empleado empleado = new Empleado("JOSÉ", "GONZÁLEZ GUTIÉRREZ", "00000000A");
 
         // controlador
         ControladorEmpleado controller = new ControladorEmpleado();
@@ -37,7 +37,10 @@ public class CrudEmpleado {
 
         // eliminar un empleado por medio del id
         //empleado.setId(1);
-        //controller.eliminar(empleado);
+        //controller.eliminar(empleado);*/
+        
+        System.out.println("¿Qué acción quieres realizar?\n"
+                + "");
     }
 
 }
