@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package Animal;
 
+import Animal.*;
 import connection.Conexion;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,22 +13,22 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Empleado;
+import Animal.Animal;
 
 /**
  *
  * @author jose
  */
-public class DAOEmpleadoImpl implements DAOEmpleado{
+public class DAOAnimalImpl implements DAOAnimal{
 
     @Override
-    public boolean registrar(Empleado empleado) {
+    public boolean registrar(Animal animal) {
         boolean registrar = false;
 
         Statement stm = null;
         Connection con = null;
 
-        String sql = "INSERT INTO empleado values (NULL,'" + empleado.getNombre()+ "','" + empleado.getApellidos()+ "','" + empleado.getDni()+ "')";
+        String sql = "INSERT INTO animal values (NULL,'" + animal.getNombre()+ "','" + animal.getEspecie() + "','" + animal.getRaza() + "')";
 
         try {
             con = Conexion.conectar();
@@ -37,80 +38,80 @@ public class DAOEmpleadoImpl implements DAOEmpleado{
             stm.close();
             con.close();
         } catch (SQLException e) {
-            System.out.println("Error: Clase EmpleadoDaoImple, método registrar");
+            System.out.println("Error: Clase AnimalDaoImple, método registrar");
             e.printStackTrace();
         }
         return registrar;
     }
 
     @Override
-    public List<Empleado> obtener() {
+    public List<Animal> obtener() {
         Connection co = null;
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM empleado ORDER BY id";
+        String sql = "SELECT * FROM animal ORDER BY id";
 
-        List<Empleado> listaEmpleado = new ArrayList<Empleado>();
+        List<Animal> listaAnimal = new ArrayList<Animal>();
 
         try {
             co = Conexion.conectar();
             stm = co.createStatement();
             rs = stm.executeQuery(sql);
             while (rs.next()) {
-                Empleado c = new Empleado();
+                Animal c = new Animal();
                 c.setId(rs.getInt(1));
                 c.setNombre(rs.getString(2));
-                c.setApellidos(rs.getString(3));
-                c.setDni(rs.getString(4));
-                listaEmpleado.add(c);
+                c.setEspecie(rs.getString(3));
+                c.setRaza(rs.getString(4));
+                listaAnimal.add(c);
             }
             stm.close();
             rs.close();
             co.close();
         } catch (SQLException e) {
-            System.out.println("Error: Clase EmpleadoDaoImple, método obtener");
+            System.out.println("Error: Clase AnimalDaoImple, método obtener");
             e.printStackTrace();
         }
 
-        return listaEmpleado;
+        return listaAnimal;
     }
 
     @Override
-    public boolean actualizar(Empleado empleado) {
+    public boolean actualizar(Animal animal) {
         Connection connect = null;
         Statement stm = null;
 
         boolean actualizar = false;
 
-        String sql = "UPDATE empleado SET nombre='" + empleado.getNombre() + "', apellidos='" + empleado.getApellidos()+ "', dni='" + empleado.getDni()+ "'" + " WHERE ID=" + empleado.getId();
+        String sql = "UPDATE animal SET nombre='" + animal.getNombre() + "', especie='" + animal.getEspecie()+ "', raza='" + animal.getRaza()+ "', id='" + animal.getId()+ "'" + " WHERE id=" + animal.getId();
         try {
             connect = Conexion.conectar();
             stm = connect.createStatement();
             stm.execute(sql);
             actualizar = true;
         } catch (SQLException e) {
-            System.out.println("Error: Clase EmpleadoDaoImple, método actualizar");
+            System.out.println("Error: Clase AnimalDaoImple, método actualizar");
             e.printStackTrace();
         }
         return actualizar;
     }
 
     @Override
-    public boolean eliminar(Empleado empleado) {
+    public boolean eliminar(Animal animal) {
         Connection connect = null;
         Statement stm = null;
 
         boolean eliminar = false;
 
-        String sql = "DELETE FROM empleado WHERE ID=" + empleado.getId();
+        String sql = "DELETE FROM animal WHERE ID=" + animal.getId();
         try {
             connect = Conexion.conectar();
             stm = connect.createStatement();
             stm.execute(sql);
             eliminar = true;
         } catch (SQLException e) {
-            System.out.println("Error: Clase EmpleadoDaoImple, método eliminar");
+            System.out.println("Error: Clase AnimalDaoImple, método eliminar");
             e.printStackTrace();
         }
         return eliminar;

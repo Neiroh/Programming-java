@@ -3,14 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package Empleado;
 
-import dao.DAOEmpleado;
-import dao.DAOEmpleadoImpl;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Empleado;
-import vista.ViewEmpleado;
 
 /**
  *

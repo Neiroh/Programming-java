@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo;
+package Empleado;
 
 import java.util.Date;
 import java.util.Objects;
@@ -16,7 +16,8 @@ public class Empleado {
     
     private int id;
     private String nombre;
-    private String apellidos;
+    private String ap1;
+    private String ap2;
     private String dni;
     private Date fechaNacimiento;
     private Direccion direccion;
@@ -24,16 +25,16 @@ public class Empleado {
     public Empleado() {
     }
     
-    public Empleado(String nombre, String apellidos, String dni) {
+    public Empleado(String nombre, String ap1) {
         this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.dni = dni;
+        this.ap1 = ap1;
     }
     
-    public Empleado(int id, String nombre, String apellidos, String dni, Date fechaNacimiento, Direccion direccion) {
+    public Empleado(int id, String nombre, String ap1, String ap2, String dni, Date fechaNacimiento, Direccion direccion) {
         this.id = id;
         this.nombre = nombre;
-        this.apellidos = apellidos;
+        this.ap1 = ap1;
+        this.ap2 = ap2;
         this.dni = dni;
         this.fechaNacimiento = fechaNacimiento;
         this.direccion = direccion;
@@ -41,13 +42,7 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return "Empleado{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", dni=" + dni + ", fechaNacimiento=" + fechaNacimiento + ", direccion=" + direccion + '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        return hash;
+        return "Empleado{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + ap1 + " " + ap2 + ", fechaNacimiento=" + fechaNacimiento + ", direccion=" + direccion + '}';
     }
 
     @Override
@@ -88,12 +83,20 @@ public class Empleado {
         this.nombre = nombre;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getAp1() {
+        return ap1;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setAp1(String ap1) {
+        this.ap1 = ap1;
+    }
+
+    public String getAp2() {
+        return ap2;
+    }
+
+    public void setAp2(String ap2) {
+        this.ap2 = ap2;
     }
 
     public String getDni() {
