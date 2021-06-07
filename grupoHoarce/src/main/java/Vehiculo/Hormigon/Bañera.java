@@ -3,23 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Vehiculo.Hormigon;
 
+import Material.Material;
 
 /**
  *
  * @author Neiroh
  */
-public class Bañera extends Vehiculo.Vehiculo{
+public class Bañera extends Vehiculo.Vehiculo {
 
-    public Bañera(){
-        
+    public Bañera() {
+
     }
-    
+
     @Override
-    public void trabaja() {
-        System.out.println("Llenando Bañera...");
+    public void trabaja(Material material) {
+        System.out.println("Llenando Bañera con " + material.getClass().getSimpleName() + "...");
     }
 
 }

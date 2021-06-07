@@ -5,11 +5,13 @@
  */
 package Vehiculo;
 
+import Material.Material;
+
 /**
  *
  * @author arce
  */
 public interface IEspecialidad {
-    
-    public void trabaja();
+
+    public void trabaja(Material mat);
 }

@@ -3,30 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Vehiculo.Hormigon;
+
+import Material.Material;
 
 /**
  *
  * @author Neiroh
  */
-public class Hormigonera extends Vehiculo.Vehiculo{
+public class Hormigonera extends Vehiculo.Vehiculo {
 
     int ejes;
     int capacidad;
-    
-    public Hormigonera(){
-        
+
+    public Hormigonera() {
+
     }
-    
-    public Hormigonera(int ejes, int capacidad){
+
+    public Hormigonera(int ejes, int capacidad) {
         this.ejes = ejes;
         this.capacidad = capacidad;
     }
 
     @Override
-    public void trabaja() {
-        System.out.println("Mezclando...");
+    public void trabaja(Material material) {
+        System.out.println("Mezclando " + material.getClass().getSimpleName() + "...");
     }
 
     @Override
@@ -49,6 +50,5 @@ public class Hormigonera extends Vehiculo.Vehiculo{
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
     }
-    
-    
+
 }
